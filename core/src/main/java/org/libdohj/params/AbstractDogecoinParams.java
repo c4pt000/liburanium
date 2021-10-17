@@ -108,8 +108,8 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
             https://github.com/c4pt000/radiocoin/blob/master/src/version.h
     */
     
-        public static final int DOGECOIN_PROTOCOL_VERSION_AUXPOW = 70003;
-    public static final int DOGECOIN_PROTOCOL_VERSION_CURRENT = 70003;
+        public static final int DOGECOIN_PROTOCOL_VERSION_AUXPOW = 80000;
+    public static final int DOGECOIN_PROTOCOL_VERSION_CURRENT = 80000;
     //5B recheck this soon of actual big number of supply of coin
    private static final Coin BASE_SUBSIDY   = COIN.multiply(235);
     private static final Coin STABLE_SUBSIDY = COIN.multiply(1000);
