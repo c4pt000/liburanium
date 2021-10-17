@@ -84,7 +84,7 @@ public class DogecoinMainNetParams extends AbstractDogecoinParams {
 "122.155.205.25",
 "62.171.141.242",
 "91.185.215.213",
-"86.120.103.206"
+"86.120.103.206",
 
 
             };
