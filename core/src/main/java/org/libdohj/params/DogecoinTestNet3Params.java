@@ -37,21 +37,21 @@ public class DogecoinTestNet3Params extends AbstractDogecoinParams {
         super(DIFFICULTY_CHANGE_TARGET);
         id = ID_TESTNET;
 
-        packetMagic = 0xfcc1b7dc;
+        packetMagic = 0x0b201807;
 
-        maxTarget = Utils.decodeCompactBits(0x1e0fffffL);
-        port = 9888;
-        addressHeader = 113;
-        p2shHeader = 196;
-        dumpedPrivateKeyHeader = 241;
-        segwitAddressHrp = "trdc";
-        genesisBlock.setTime(1486949366L);
-        genesisBlock.setDifficultyTarget(0x1e0ffff0L);
-        genesisBlock.setNonce(211209);
+        maxTarget = Utils.decodeCompactBits(0x1f0fffffL);
+        port = 18235;
+        addressHeader = 112;
+        p2shHeader = 227;
+        dumpedPrivateKeyHeader = 199;
+        segwitAddressHrp = "turx";
+        genesisBlock.setTime(1557009671L);
+        genesisBlock.setDifficultyTarget(0x1f0fffffL);
+        genesisBlock.setNonce(2743);
         spendableCoinbaseDepth = 10;
         subsidyDecreaseBlockCount = 100000;
         String genesisHash = genesisBlock.getHashAsString();
-        checkState(genesisHash.equals("00000a2ee9363d21e47bc10d5b1e39d4ae4bd950491790e522f90dad86d2d1eb"));
+        checkState(genesisHash.equals("6589ebb12bf31c219738eddb2f892f0ea4ae1ba7e24f55718fbcbdf30eba1b03"));
 
         majorityEnforceBlockUpgrade = TESTNET_MAJORITY_ENFORCE_BLOCK_UPGRADE;
         majorityRejectBlockOutdated = TESTNET_MAJORITY_REJECT_BLOCK_OUTDATED;
