@@ -69,8 +69,10 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
     /** Currency code for base 1/100,000,000 Dogecoin. */
     public static final String CODE_KOINU = "geigers";
 
-    private static final int BLOCK_MIN_VERSION_AUXPOW =  0x00620004;
-    private static final int BLOCK_VERSION_FLAG_AUXPOW = 0x00000100;
+  //  private static final int BLOCK_MIN_VERSION_AUXPOW =  0x00620004;
+     private static final int BLOCK_MIN_VERSION_AUXPOW =   0x20000000;
+
+    private static final int BLOCK_VERSION_FLAG_AUXPOW =   0x00000100;
     
     // or 0x00620004
     //  private static final int BLOCK_MIN_VERSION_AUXPOW = 0x00620002;
@@ -108,8 +110,8 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
             https://github.com/c4pt000/radiocoin/blob/master/src/version.h
     */
     
-        public static final int DOGECOIN_PROTOCOL_VERSION_AUXPOW = 80000;
-    public static final int DOGECOIN_PROTOCOL_VERSION_CURRENT = 80000;
+        public static final int DOGECOIN_PROTOCOL_VERSION_AUXPOW = 80003;
+    public static final int DOGECOIN_PROTOCOL_VERSION_CURRENT = 80003;
     //5B recheck this soon of actual big number of supply of coin
    private static final Coin BASE_SUBSIDY   = COIN.multiply(235);
     private static final Coin STABLE_SUBSIDY = COIN.multiply(1000);
@@ -460,14 +462,14 @@ System.out.println("higher target value than expected");
         switch (version) {
             case PONG:
            case BLOOM_FILTER:
-                return version.getBitcoinProtocolVersion();
+                return DOGECOIN_PROTOCOL_VERSION_CURRENT;
+
+//                return version.getBitcoinProtocolVersion();
             case CURRENT:
                 return DOGECOIN_PROTOCOL_VERSION_CURRENT;
             case MINIMUM:
             default:
-               return DOGECOIN_PROTOCOL_VERSION_CURRENT;
-
-//                return DOGECOIN_PROTOCOL_VERSION_AUXPOW;
+                return DOGECOIN_PROTOCOL_VERSION_AUXPOW;
         }
     }
 
