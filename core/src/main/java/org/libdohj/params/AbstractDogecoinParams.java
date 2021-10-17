@@ -111,11 +111,11 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
             https://github.com/c4pt000/radiocoin/blob/master/src/version.h
     */
     
-        public static final int DOGECOIN_PROTOCOL_VERSION_AUXPOW = 70003;
-    public static final int DOGECOIN_PROTOCOL_VERSION_CURRENT = 70003;
+        public static final int DOGECOIN_PROTOCOL_VERSION_AUXPOW = 80003;
+    public static final int DOGECOIN_PROTOCOL_VERSION_CURRENT = 80003;
     //5B recheck this soon of actual big number of supply of coin
-   private static final Coin BASE_SUBSIDY   = COIN.multiply(10000000);
-    private static final Coin STABLE_SUBSIDY = COIN.multiply(10000);
+   private static final Coin BASE_SUBSIDY   = COIN.multiply(235);
+    private static final Coin STABLE_SUBSIDY = COIN.multiply(1000);
 
     public AbstractDogecoinParams(final int setDiffChangeTarget) {
         super();
@@ -473,10 +473,10 @@ System.out.println("higher target value than expected");
     }
 
     @Override
-    public boolean isAuxPoWBlockVersion(long version) {
-        return version >= BLOCK_MIN_VERSION_AUXPOW
-            && (version & BLOCK_VERSION_FLAG_AUXPOW) > 0;
-    }
+   // public boolean isAuxPoWBlockVersion(long version) {
+     //   return version >= BLOCK_MIN_VERSION_AUXPOW
+       //     && (version & BLOCK_VERSION_FLAG_AUXPOW) > 0;
+   // }
 
     /**
      * Get the target time between individual blocks. Dogecoin uses this in its
