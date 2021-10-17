@@ -459,20 +459,22 @@ System.out.println("higher target value than expected");
     public int getProtocolVersionNum(final ProtocolVersion version) {
         switch (version) {
             case PONG:
-           case BLOOM_FILTER:
-                return version.getBitcoinProtocolVersion();
+           //case BLOOM_FILTER:
+               // return version.getBitcoinProtocolVersion();
             case CURRENT:
                 return DOGECOIN_PROTOCOL_VERSION_CURRENT;
             case MINIMUM:
             default:
-                return DOGECOIN_PROTOCOL_VERSION_AUXPOW;
+                                return DOGECOIN_PROTOCOL_VERSION_CURRENT;
+
+//                return DOGECOIN_PROTOCOL_VERSION_AUXPOW;
         }
     }
 
     @Override
     public boolean isAuxPoWBlockVersion(long version) {
-        return version >= BLOCK_MIN_VERSION_AUXPOW
-           && (version & BLOCK_VERSION_FLAG_AUXPOW) > 0;
+        return version <= BLOCK_MIN_VERSION_AUXPOW
+           && (version & BLOCK_VERSION_FLAG_AUXPOW) < 0;
     }
 
     /**
