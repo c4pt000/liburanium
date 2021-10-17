@@ -473,10 +473,10 @@ System.out.println("higher target value than expected");
     }
 
     @Override
-   // public boolean isAuxPoWBlockVersion(long version) {
-     //   return version >= BLOCK_MIN_VERSION_AUXPOW
-       //     && (version & BLOCK_VERSION_FLAG_AUXPOW) > 0;
-   // }
+    public boolean isAuxPoWBlockVersion(long version) {
+        return version >= BLOCK_MIN_VERSION_AUXPOW
+           && (version & BLOCK_VERSION_FLAG_AUXPOW) > 0;
+    }
 
     /**
      * Get the target time between individual blocks. Dogecoin uses this in its
