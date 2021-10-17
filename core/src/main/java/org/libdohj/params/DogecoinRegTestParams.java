@@ -39,14 +39,11 @@ public class DogecoinRegTestParams extends DogecoinTestNet3Params {
         interval = Integer.MAX_VALUE;
         maxTarget = MAX_TARGET;
         subsidyDecreaseBlockCount = 150;
-        port = 18236;
+        port = 18444;
         id = ID_REGTEST;
-        
-    
-        
-        packetMagic = 0xfacec4da;
-        addressHeader = 112;
-        dumpedPrivateKeyHeader = 199;
+        packetMagic = 0xfabfb5da;
+        addressHeader = 111;
+        dumpedPrivateKeyHeader = 239;
     }
 
     @Override
@@ -61,11 +58,11 @@ public class DogecoinRegTestParams extends DogecoinTestNet3Params {
         synchronized (DogecoinRegTestParams.class) {
             if (genesis == null) {
                 genesis = super.getGenesisBlock();
-                genesis.setNonce(17);
-                genesis.setDifficultyTarget(0x200fffffL);
-                genesis.setTime(1524198906L);
+                genesis.setNonce(2);
+                genesis.setDifficultyTarget(0x207fffffL);
+                genesis.setTime(1296688602L);
                 checkState(genesis.getVersion() == 1);
-                checkState(genesis.getHashAsString().toLowerCase().equals("101336b273a9626bed8541eea8c716e5527ac5805681f41cf6e36d153ca7636f"));
+                checkState(genesis.getHashAsString().toLowerCase().equals("1b38af7fac04373a2619b6f0e8f2fc73f45380fb98bef338b41fb64e893b9cd2"));
                 genesis.verifyHeader();
             }
             return genesis;

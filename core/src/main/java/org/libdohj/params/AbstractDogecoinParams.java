@@ -55,24 +55,21 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
     public static final MonetaryFormat KOINU;
 
     public static final int DIGISHIELD_BLOCK_HEIGHT = 100; // Block height to use Digishield from
-    public static final int AUXPOW_CHAIN_ID = 0x2000; // 98
-    public static final int DOGE_TARGET_TIMESPAN = 7 * 24 * 60 * 60;  // 4 hours per difficulty cycle, on average.
-    public static final int DOGE_TARGET_TIMESPAN_NEW = 5 * 60;  // 60s per difficulty cycle, on average. Kicks in after block 145k.
-    public static final int DOGE_TARGET_SPACING = 5 * 60;  // 1 minute per block.
+    public static final int AUXPOW_CHAIN_ID = 0x0062; // 98
+    public static final int DOGE_TARGET_TIMESPAN = 4 * 60 * 60;  // 4 hours per difficulty cycle, on average.
+    public static final int DOGE_TARGET_TIMESPAN_NEW = 60;  // 60s per difficulty cycle, on average. Kicks in after block 145k.
+    public static final int DOGE_TARGET_SPACING = 1 * 60;  // 1 minute per block.
     public static final int DOGE_INTERVAL = DOGE_TARGET_TIMESPAN / DOGE_TARGET_SPACING;
     public static final int DOGE_INTERVAL_NEW = DOGE_TARGET_TIMESPAN_NEW / DOGE_TARGET_SPACING;
 
     /** Currency code for base 1 Dogecoin. */
-    public static final String CODE_DOGE = "URX";
+    public static final String CODE_DOGE = "RADC";
     /** Currency code for base 1/1,000 Dogecoin. */
-    public static final String CODE_MDOGE = "mURX";
+    public static final String CODE_MDOGE = "mRADC";
     /** Currency code for base 1/100,000,000 Dogecoin. */
-    public static final String CODE_KOINU = "geigers";
+    public static final String CODE_KOINU = "radiowaves";
 
-    
-    private static final int BLOCK_MIN_VERSION_AUXPOW =  0x20000000;
-
-    //private static final int BLOCK_MIN_VERSION_AUXPOW =  0x00620004;
+    private static final int BLOCK_MIN_VERSION_AUXPOW =  0x00620004;
     private static final int BLOCK_VERSION_FLAG_AUXPOW = 0x00000100;
 
     
@@ -125,15 +122,15 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
         newInterval = DOGE_INTERVAL_NEW;
         targetTimespan = DOGE_TARGET_TIMESPAN;
         newTargetTimespan = DOGE_TARGET_TIMESPAN_NEW;
-        maxTarget = Utils.decodeCompactBits(0x1e7fffffL);
+        maxTarget = Utils.decodeCompactBits(0x1e0ffff0L);
         diffChangeTarget = setDiffChangeTarget;
 // https://github.com/c4pt000/radiocoin/blob/c2c4c5f9dbf38b985b43077d506c161a3e91a8df/src/chainparams.cpp#L180
         
-        packetMagic = 0xf9d9cdc3;
+        packetMagic = 0xd1d1d1d1;
 
         
-         bip32HeaderP2PKHpub = 0x0488b21e; //The 4 byte header that serializes in base58 to "dgub".
-        bip32HeaderP2PKHpriv =  0x0488ade4; 
+         bip32HeaderP2PKHpub = 0x02facafd; //The 4 byte header that serializes in base58 to "dgub".
+        bip32HeaderP2PKHpriv =  0x02fac398; 
         
        // bip32HeaderP2PKHpub = 0x0488C42E; //The 4 byte header that serializes in base58 to "xpub". (?)
         //bip32HeaderP2PKHpriv = 0x0488E1F4; //The 4 byte header that serializes in base58 to "xprv" (?)
@@ -145,28 +142,15 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
         try {
             byte[] bytes = Utils.HEX.decode
                 // could be byte flipped here differently f0ff0f1e0 "1e0f
-                      //  1e7f  ->        ffff7f1e
-                       // ffff
-                
-                       // 1e0f    -> 0f1e
-                      //  fff0
-                
-                       // f0 ff 0f 1e
-                       // ff ff f7 
-                //fff0" , 10 for 16 bytes by psz. starts with 04 for byte padding 
-                 // 04f0ff 0f1e   010410526164696f436f696e2077616c6c6574
-              //  ("04 f0ff0f1e 010410 526164696f436f696e2077616c6c6574");
-                //psz phrase UraniumX 20/April/2018 Radioactive Blockchain Discovered in Deep Space
-                // phrase is 140 characters / 2 is 70 bytes , 70 in hex is 46 as (70) bytes
-    //            ("04 ffff7f1e 0104 46 5572616e69756d582032302f417072696c2f3230313820526164696f61637469766520426c6f636b636861696e20446973636f766572656420696e2044656570205370616365");  
-
-            ("04ffff7f1e0104465572616e69756d582032302f417072696c2f3230313820526164696f61637469766520426c6f636b636861696e20446973636f766572656420696e2044656570205370616365");  
+                                                                     //fff0" , 10 for 16 bytes by psz. starts with 04 for byte padding 
+                 // 04f0ff0f1e010410526164696f436f696e2077616c6c6574
+                ("04f0ff0f1e010410526164696f436f696e2077616c6c6574");
             t.addInput(new TransactionInput(params, t, bytes));
             ByteArrayOutputStream scriptPubKeyBytes = new ByteArrayOutputStream();
             Script.writeBytes(scriptPubKeyBytes, Utils.HEX.decode
-                    ("04584ca4018adf8b6b26edb1d2ac869a3ad91f8b92c1d93a89bd7c2142a5f42332a3896625ca5acb660004d4a07d73ec46b456e494cca331e7f3cfb12e0af68538"));
+                    ("046b8e36534122449a1d0c0c2b380647b23b562fb0be95b698596a2507eb6aa5c5dba4294bc39f31b3b2351994673ce150449ad83bce4b7624b7c488f6ca23aa71"));
             scriptPubKeyBytes.write(ScriptOpCodes.OP_CHECKSIG);
-            t.addOutput(new TransactionOutput(params, t, COIN.multiply(1), scriptPubKeyBytes.toByteArray()));
+            t.addOutput(new TransactionOutput(params, t, COIN.multiply(88), scriptPubKeyBytes.toByteArray()));
         } catch (Exception e) {
             // Cannot happen.
             throw new RuntimeException(e);

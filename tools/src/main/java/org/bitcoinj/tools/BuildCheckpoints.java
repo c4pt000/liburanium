@@ -235,7 +235,7 @@ public class BuildCheckpoints {
 //1632768878
 //┌─[root@fedora]─[/home/c4pt/opt/libdohj/tools]
 //└──╼ #radiocoin-cli getblockhash 0
-//6be1ade2619d1402571996e436b726c8b0bd72f10fdcae10cff5acd369118626
+//000007ce46e6c59844c34fa7ba5b27c8dac0653a27fcfb7340cc0158849e4afd
 //┌─[root@fedora]─[/home/c4pt/opt/libdohj/tools]
 //└──╼ #
 
@@ -244,7 +244,7 @@ public class BuildCheckpoints {
             StoredBlock test = manager.getCheckpointBefore(1632768878); // Thu Jan 23 19:00:00 CET 2014
             checkState(test.getHeight() == 0);
             checkState(test.getHeader().getHashAsString()
-                    .equals("6be1ade2619d1402571996e436b726c8b0bd72f10fdcae10cff5acd369118626"));
+                    .equals("000007ce46e6c59844c34fa7ba5b27c8dac0653a27fcfb7340cc0158849e4afd"));
         } else if (params.getId().equals(NetworkParameters.ID_TESTNET)) {
             StoredBlock test = manager.getCheckpointBefore(1390500000); // Thu Jan 23 19:00:00 CET 2014
             checkState(test.getHeight() == 167328);
