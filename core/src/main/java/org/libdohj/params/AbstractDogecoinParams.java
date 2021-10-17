@@ -55,7 +55,7 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
     public static final MonetaryFormat KOINU;
 
     public static final int DIGISHIELD_BLOCK_HEIGHT = 100; // Block height to use Digishield from
-    public static final int AUXPOW_CHAIN_ID = 0x2000; // 98
+    public static final int AUXPOW_CHAIN_ID = 0x0062; // 98
     public static final int DOGE_TARGET_TIMESPAN = 7 * 24 * 60 * 60;  // 4 hours per difficulty cycle, on average.
     public static final int DOGE_TARGET_TIMESPAN_NEW = 5 * 60;  // 60s per difficulty cycle, on average. Kicks in after block 145k.
     public static final int DOGE_TARGET_SPACING = 5 * 60;  // 1 minute per block.
@@ -69,11 +69,8 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
     /** Currency code for base 1/100,000,000 Dogecoin. */
     public static final String CODE_KOINU = "geigers";
 
-//    private static final int BLOCK_MIN_VERSION_AUXPOW =  0x00620004;
-    private static final int BLOCK_MIN_VERSION_AUXPOW =    0x20000000;
-    private static final int BLOCK_VERSION_FLAG_AUXPOW =   0x00000001;
-
-    //private static final int BLOCK_VERSION_FLAG_AUXPOW = 0x00000100;
+    private static final int BLOCK_MIN_VERSION_AUXPOW =  0x00620004;
+    private static final int BLOCK_VERSION_FLAG_AUXPOW = 0x00000100;
     
     // or 0x00620004
     //  private static final int BLOCK_MIN_VERSION_AUXPOW = 0x00620002;
@@ -111,8 +108,8 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
             https://github.com/c4pt000/radiocoin/blob/master/src/version.h
     */
     
-        public static final int DOGECOIN_PROTOCOL_VERSION_AUXPOW = 80003;
-    public static final int DOGECOIN_PROTOCOL_VERSION_CURRENT = 80003;
+        public static final int DOGECOIN_PROTOCOL_VERSION_AUXPOW = 70003;
+    public static final int DOGECOIN_PROTOCOL_VERSION_CURRENT = 70003;
     //5B recheck this soon of actual big number of supply of coin
    private static final Coin BASE_SUBSIDY   = COIN.multiply(235);
     private static final Coin STABLE_SUBSIDY = COIN.multiply(1000);
