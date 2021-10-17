@@ -70,9 +70,11 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
     public static final String CODE_KOINU = "geigers";
 
 //    private static final int BLOCK_MIN_VERSION_AUXPOW =  0x00620004;
-    private static final int BLOCK_MIN_VERSION_AUXPOW =    0x20000003;
-    private static final int BLOCK_VERSION_FLAG_AUXPOW = 0x00000100;
+    private static final int BLOCK_MIN_VERSION_AUXPOW =    0x20000000;
+    private static final int BLOCK_VERSION_FLAG_AUXPOW =   0x00000001;
 
+    //private static final int BLOCK_VERSION_FLAG_AUXPOW = 0x00000100;
+                                                             00000001
     
     // or 0x00620004
     //  private static final int BLOCK_MIN_VERSION_AUXPOW = 0x00620002;
