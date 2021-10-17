@@ -123,7 +123,7 @@ public abstract class AbstractDogecoinParams extends NetworkParameters implement
         newInterval = DOGE_INTERVAL_NEW;
         targetTimespan = DOGE_TARGET_TIMESPAN;
         newTargetTimespan = DOGE_TARGET_TIMESPAN_NEW;
-        maxTarget = Utils.decodeCompactBits(0x1e7fffffL);
+        maxTarget = Utils.decodeCompactBits(0x1d00ffffL);
         diffChangeTarget = setDiffChangeTarget;
 // https://github.com/c4pt000/radiocoin/blob/c2c4c5f9dbf38b985b43077d506c161a3e91a8df/src/chainparams.cpp#L180
         
@@ -462,9 +462,7 @@ System.out.println("higher target value than expected");
         switch (version) {
             case PONG:
            case BLOOM_FILTER:
-                return DOGECOIN_PROTOCOL_VERSION_CURRENT;
-
-//                return version.getBitcoinProtocolVersion();
+         return version.getBitcoinProtocolVersion();
             case CURRENT:
                 return DOGECOIN_PROTOCOL_VERSION_CURRENT;
             case MINIMUM:
@@ -475,8 +473,8 @@ System.out.println("higher target value than expected");
 
     @Override
     public boolean isAuxPoWBlockVersion(long version) {
-        return version <= BLOCK_MIN_VERSION_AUXPOW
-           && (version & BLOCK_VERSION_FLAG_AUXPOW) < 0;
+        return version >= BLOCK_MIN_VERSION_AUXPOW
+           && (version & BLOCK_VERSION_FLAG_AUXPOW) > 0;
     }
 
     /**
